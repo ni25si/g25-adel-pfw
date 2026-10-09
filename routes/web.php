@@ -3,6 +3,7 @@
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -45,3 +46,12 @@ Route::get('/matakuliah/{param1}',
 
 
 Route::post('/question', [QuestionController::class, 'store'])->name('question.store');
+
+Route::get('/guest', function () {
+    return view('guest.dashboard');
+});
+
+use App\Http\Controllers\AdminController;
+
+Route::get('/admin', [AdminController::class, 'index'])
+        ->name('admin.dashboard');
