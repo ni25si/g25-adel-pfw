@@ -5,6 +5,8 @@ use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\KurirController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,3 +67,7 @@ Route::get('/guest', function () {
 Route::get('/guest', function () {
     return view('guest.dashboard');
 })->name('guest.index');
+
+Route::resource('menu', MenuController::class);
+
+Route::resource('kurir', KurirController::class);

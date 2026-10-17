@@ -21,7 +21,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laperin</title>
+    <title>Laperin - Tambah Pelanggan</title>
 
     <link rel="icon" href="{{ asset('assets-guest/img/laperin.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">

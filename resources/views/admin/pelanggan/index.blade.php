@@ -20,7 +20,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Laperin</title>
+    <title>Laperin - Data Pelanggan</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets-guest/img/laperin.png') }}">
