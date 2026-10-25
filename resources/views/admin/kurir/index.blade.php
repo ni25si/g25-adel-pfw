@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Laperin - Data Kurir</title>
@@ -10,51 +11,62 @@
     <link rel="stylesheet" href="{{ asset('assets-admin/css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-dark text-white">
 
     <div class="d-flex">
         <!-- Sidebar -->
-        <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse min-vh-100" style="width: 250px;">
+        <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse min-vh-100"
+            style="width: 250px;">
             <div class="sidebar-inner px-3 pt-3">
                 <div class="d-flex align-items-center justify-content-start pb-4">
                     <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets-guest/img/laperin.png') }}" alt="Laperin Logo" style="width: 35px; height: 35px; object-fit: contain;" class="me-2">
+                        <img src="{{ asset('assets-guest/img/laperin.png') }}" alt="Laperin Logo"
+                            style="width: 35px; height: 35px; object-fit: contain;" class="me-2">
                         <span class="sidebar-text fw-bold fs-4 text-white">Laperin</span>
                     </a>
                 </div>
                 <ul class="nav flex-column pt-2 pt-md-0">
-  <!-- Dashboard -->
-  <li class="nav-item mb-2">
-    <a href="{{ route('dashboard') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
-      <span class="sidebar-icon me-3 ms-1"><i class="fas fa-chart-pie fs-6" style="color: #9ca3af !important;"></i></span>
-      <span class="sidebar-text fw-medium">Dashboard</span>
-    </a>
-  </li>
+                    <!-- Dashboard -->
+                    <li class="nav-item mb-2">
+                        <a href="{{ route('dashboard') }}"
+                            class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
+                            <span class="sidebar-icon me-3 ms-1"><i class="fas fa-chart-pie fs-6"
+                                    style="color: #9ca3af !important;"></i></span>
+                            <span class="sidebar-text fw-medium">Dashboard</span>
+                        </a>
+                    </li>
 
-  <!-- Pelanggan -->
-  <li class="nav-item mb-2">
-    <a href="{{ route('pelanggan.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
-      <span class="sidebar-icon me-3 ms-1"><i class="fas fa-users fs-6" style="color: #9ca3af !important;"></i></span>
-      <span class="sidebar-text fw-medium">Pelanggan</span>
-    </a>
-  </li>
+                    <!-- Pelanggan -->
+                    <li class="nav-item mb-2">
+                        <a href="{{ route('pelanggan.index') }}"
+                            class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
+                            <span class="sidebar-icon me-3 ms-1"><i class="fas fa-users fs-6"
+                                    style="color: #9ca3af !important;"></i></span>
+                            <span class="sidebar-text fw-medium">Pelanggan</span>
+                        </a>
+                    </li>
 
-  <!-- Data Menu -->
-  <li class="nav-item mb-2">
-    <a href="{{ route('menu.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
-      <span class="sidebar-icon me-3 ms-1"><i class="fas fa-book-open fs-6" style="color: #9ca3af !important;"></i></span>
-      <span class="sidebar-text fw-medium">Data Menu</span>
-    </a>
-  </li>
+                    <!-- Data Menu -->
+                    <li class="nav-item mb-2">
+                        <a href="{{ route('menu.index') }}"
+                            class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
+                            <span class="sidebar-icon me-3 ms-1"><i class="fas fa-book-open fs-6"
+                                    style="color: #9ca3af !important;"></i></span>
+                            <span class="sidebar-text fw-medium">Data Menu</span>
+                        </a>
+                    </li>
 
-  <!-- Data Kurir -->
-  <li class="nav-item mb-2">
-    <a href="{{ route('kurir.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
-      <span class="sidebar-icon me-3 ms-1"><i class="fas fa-motorcycle fs-6" style="color: #9ca3af !important;"></i></span>
-      <span class="sidebar-text fw-medium">Data Kurir</span>
-    </a>
-  </li>
-</ul>
+                    <!-- Data Kurir -->
+                    <li class="nav-item mb-2">
+                        <a href="{{ route('kurir.index') }}"
+                            class="nav-link d-flex align-items-center p-2 rounded-3 text-white">
+                            <span class="sidebar-icon me-3 ms-1"><i class="fas fa-motorcycle fs-6"
+                                    style="color: #9ca3af !important;"></i></span>
+                            <span class="sidebar-text fw-medium">Data Kurir</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -94,7 +106,8 @@
                                         <td class="px-3">{{ $index + 1 }}</td>
                                         <td class="fw-bold px-3">{{ $item->nama_kurir }}</td>
                                         <td class="px-3">{{ $item->nomor_hp }}</td>
-                                        <td class="px-3"><span class="badge bg-secondary">{{ $item->plat_kendaraan }}</span></td>
+                                        <td class="px-3"><span class="badge bg-secondary">{{ $item->plat_kendaraan }}</span>
+                                        </td>
                                         <td class="px-3">
                                             <span class="badge {{ $item->status == 'Aktif' ? 'bg-success' : 'bg-danger' }}">
                                                 {{ $item->status }}
@@ -102,13 +115,16 @@
                                         </td>
                                         <td class="text-center px-3">
                                             <div class="d-flex align-items-center justify-content-center gap-1">
-                                                <a href="{{ route('kurir.edit', $item->id_kurir) }}" class="btn btn-warning text-white btn-sm px-3 py-1">
+                                                <a href="{{ route('kurir.edit', $item->id_kurir) }}"
+                                                    class="btn btn-warning text-white btn-sm px-3 py-1">
                                                     <i class="fas fa-edit me-1"></i> Edit
                                                 </a>
-                                                <form action="{{ route('kurir.destroy', $item->id_kurir) }}" method="POST" class="d-inline" onsubmit="return confirm('Hapus kurir ini?')">
+                                                <form action="{{ route('kurir.destroy', $item->id_kurir) }}" method="POST"
+                                                    class="d-inline" onsubmit="return confirm('Hapus kurir ini?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger text-white btn-sm px-3 py-1">
+                                                    <button type="submit"
+                                                        class="btn btn-danger text-white btn-sm px-3 py-1">
                                                         <i class="fas fa-trash-alt me-1"></i> Hapus
                                                     </button>
                                                 </form>
@@ -116,7 +132,10 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr><td colspan="6" class="text-center py-4 text-muted">Belum ada data kurir pengantar.</td></tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center py-4 text-muted">Belum ada data kurir pengantar.
+                                        </td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
@@ -127,4 +146,5 @@
     </div>
 
 </body>
+
 </html>
