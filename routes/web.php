@@ -7,6 +7,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\KurirController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -71,3 +72,5 @@ Route::get('/guest', function () {
 Route::resource('menu', MenuController::class);
 
 Route::resource('kurir', KurirController::class);
+
+Route::resource('user', UserController::class);
