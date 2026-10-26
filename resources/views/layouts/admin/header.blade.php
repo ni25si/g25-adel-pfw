@@ -58,4 +58,36 @@
                 </div>
             </div>
         </nav>
+        <nav class="navbar navbar-expand navbar-dark sticky-top px-4 py-0">
+    <a href="{{ url('/admin') }}" class="navbar-brand d-flex d-lg-none me-3"><h4 class="mb-0"><i class="fas fa-utensils"></i></h4></a>
+    <a href="#" class="sidebar-toggler flex-shrink-0" aria-label="Buka/tutup menu"><i class="fa fa-bars"></i></a>
+    <form class="d-none d-md-flex ms-4" role="search" onsubmit="return false;">
+        <input id="search-dashboard" class="form-control border-0" type="search" placeholder="Cari data...">
+    </form>
+    <div class="navbar-nav align-items-center ms-auto">
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-envelope me-lg-2"></i><span class="d-none d-lg-inline-flex">Pesan</span></a>
+            <div class="dropdown-menu dropdown-menu-end border-0 rounded-bottom m-0">
+                <span class="dropdown-item-text small-muted">Belum ada pesan baru.</span>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-bell me-lg-2"></i><span class="d-none d-lg-inline-flex">Notifikasi</span></a>
+            <div class="dropdown-menu dropdown-menu-end border-0 rounded-bottom m-0">
+                <span class="dropdown-item-text small-muted">Belum ada notifikasi baru.</span>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                <img class="rounded-circle me-lg-2 profile-photo" src="{{ asset('assets-admin/img/admin.png') }}" alt="Foto Admin Adelia">
+                <span class="d-none d-lg-inline-flex">Adelia</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end border-0 rounded-bottom m-0">
+                <a href="{{ url('/admin/profil') }}" class="dropdown-item">Profil Saya</a>
+                <a href="{{ url('/admin/pengaturan') }}" class="dropdown-item">Pengaturan</a>
+                <a href="{{ route('auth.index') }}" class="dropdown-item">Keluar</a>
+            </div>
+        </div>
+    </div>
+</nav>
 {{-- end header --}}
