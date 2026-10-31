@@ -20,7 +20,6 @@
         <!-- Logo Brand Laperin -->
         <div class="d-flex align-items-center justify-content-start pb-4">
             <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none">
-                <!-- Gambar Logo Laperin menggantikan Ikon Garpu -->
                 <img src="{{ asset('assets-admin/img/laperin.png') }}" alt="Laperin Logo"
                     style="width: 35px; height: 35px; object-fit: contain;" class="me-2">
                 <span class="sidebar-text fw-bold fs-4 text-white">Laperin</span>
@@ -30,8 +29,8 @@
         <!-- Daftar Menu Sidebar -->
         <ul class="nav flex-column pt-2 pt-md-0">
 
-            <!-- Menu Dashboard (Kotak Background Dark) -->
-            <li class="nav-item mb-2 {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <!-- Menu Dashboard -->
+            <li class="nav-item mb-2 {{ request()->routeIs('dashboard') || request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <a href="{{ route('dashboard') }}" class="nav-link d-flex align-items-center p-2 rounded-3"
                     style="background-color: #262f3d !important; color: #ffffff !important; text-decoration: none;">
                     <span class="sidebar-icon me-3 ms-1 d-flex align-items-center">
@@ -41,9 +40,20 @@
                 </a>
             </li>
 
-            <!-- Menu Pelanggan (Kotak Background Dark) -->
+            <!-- Menu Menu / Kelola Menu -->
+            <li class="nav-item mb-2 {{ request()->routeIs('menu.*') ? 'active' : '' }}">
+                <a href="{{ route('menu.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3"
+                    style="background-color: #262f3d !important; color: #ffffff !important; text-decoration: none;">
+                    <span class="sidebar-icon me-3 ms-1 d-flex align-items-center">
+                        <i class="fas fa-utensils fs-6" style="color: #9ca3af !important;"></i>
+                    </span>
+                    <span class="sidebar-text fw-medium" style="color: #ffffff !important;">Kelola Menu</span>
+                </a>
+            </li>
+
+            <!-- Menu Pelanggan -->
             <li class="nav-item mb-2 {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}">
-                <a href="/guest" class="nav-link d-flex align-items-center p-2 rounded-3"
+                <a href="{{ route('pelanggan.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3"
                     style="background-color: #262f3d !important; color: #ffffff !important; text-decoration: none;">
                     <span class="sidebar-icon me-3 ms-1 d-flex align-items-center">
                         <i class="fas fa-users fs-6" style="color: #9ca3af !important;"></i>
@@ -51,7 +61,8 @@
                     <span class="sidebar-text fw-medium" style="color: #ffffff !important;">Pelanggan</span>
                 </a>
             </li>
-            <!-- Menu User (Kotak Background Dark) -->
+
+            <!-- Menu User -->
             <li class="nav-item mb-2 {{ request()->routeIs('user.*') ? 'active' : '' }}">
                 <a href="{{ route('user.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3"
                     style="background-color: #262f3d !important; color: #ffffff !important; text-decoration: none;">
@@ -61,11 +72,12 @@
                     <span class="sidebar-text fw-medium" style="color: #ffffff !important;">User</span>
                 </a>
             </li>
+
             <!-- Garis Pembatas Halus -->
             <li role="separator" class="dropdown-divider my-3"
                 style="border-color: rgba(255, 255, 255, 0.1) !important;"></li>
 
-            <!-- Menu Documentation + Badge v1.4 -->
+            <!-- Menu Documentation -->
             <li class="nav-item mb-2">
                 <a href="#" class="nav-link d-flex align-items-center justify-content-between p-2 rounded-3"
                     style="color: #ffffff !important; text-decoration: none;">
