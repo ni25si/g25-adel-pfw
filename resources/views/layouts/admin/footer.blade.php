@@ -24,5 +24,13 @@
                     </ul>
                 </div>
             </div>
+            <footer class="container-fluid px-4 pb-4">
+    <div class="dashboard-panel py-3">
+        <div class="d-flex flex-wrap justify-content-between gap-2">
+            <span class="small-muted">&copy; {{ date('Y') }} Laperin. Hak cipta dilindungi.</span>
+            <span class="small-muted">Dashboard Admin Laperin</span>
+        </div>
+    </div>
+</footer>
         </footer>
     {{-- end footer --}}

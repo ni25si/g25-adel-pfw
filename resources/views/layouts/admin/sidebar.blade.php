@@ -94,5 +94,31 @@
 
         </ul>
     </div>
+    <div class="sidebar pe-4 pb-3">
+    <nav class="navbar navbar-dark">
+        <a href="{{ route('admin.dashboard') }}" class="navbar-brand mx-4 mb-3 d-flex align-items-center">
+            <img src="{{ asset('assets-guest/img/laperin.png') }}" alt="Logo Laperin" style="height: 50px;" class="me-2">
+            <h3 class="mb-0">Laperin</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle profile-photo" src="{{ asset('assets-admin/img/admin.png') }}" alt="Foto Admin Adelia">
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0 text-white">Adelia</h6>
+                <span class="small-muted">Admin</span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="{{ url('/admin') }}" class="nav-item nav-link {{ request()->is('admin') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="{{ url('/admin/menu') }}" class="nav-item nav-link {{ request()->is('admin/menu*') ? 'active' : '' }}"><i class="fa fa-hamburger me-2"></i>Kelola Menu</a>
+            <a href="{{ url('/admin/pesanan') }}" class="nav-item nav-link {{ request()->is('admin/pesanan*') ? 'active' : '' }}"><i class="fa fa-shopping-bag me-2"></i>Data Pesanan</a>
+            <a href="{{ url('/admin/pelanggan') }}" class="nav-item nav-link {{ request()->is('admin/pelanggan*') ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Data Pelanggan</a>
+            <a href="{{ url('/admin/laporan') }}" class="nav-item nav-link {{ request()->is('admin/laporan*') ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Laporan</a>
+            <a href="{{ url('/admin/pengaturan') }}" class="nav-item nav-link {{ request()->is('admin/pengaturan*') ? 'active' : '' }}"><i class="fa fa-cog me-2"></i>Pengaturan</a>
+        </div>
+    </nav>
+</div>
 </nav>
 {{-- end sidebar --}}
