@@ -85,7 +85,7 @@
             <div class="dropdown-menu dropdown-menu-end border-0 rounded-bottom m-0">
                 <a href="{{ url('/admin/profil') }}" class="dropdown-item">Profil Saya</a>
                 <a href="{{ url('/admin/pengaturan') }}" class="dropdown-item">Pengaturan</a>
-                <a href="{{ route('auth.index') }}" class="dropdown-item">Keluar</a>
+                <a href="{{ url('/auth') }}" class="dropdown-item">Keluar</a>
             </div>
         </div>
     </div>
