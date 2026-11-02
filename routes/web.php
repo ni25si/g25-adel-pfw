@@ -6,6 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KurirController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -48,10 +49,11 @@ Route::post('/question', [QuestionController::class, 'store'])->name('question.s
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
-// Route Group Admin (Mencegah 404 saat mengakses /admin/menu, /admin/pelanggan, dll)
+// Route Group Admin
 Route::prefix('admin')->group(function () {
     Route::resource('pelanggan', PelangganController::class);
     Route::resource('menu', MenuController::class);
+    Route::resource('kategori', KategoriController::class);
     Route::resource('kurir', KurirController::class);
     Route::resource('user', UserController::class);
     Route::get('/pesanan', [AdminController::class, 'index']);
@@ -62,12 +64,13 @@ Route::prefix('admin')->group(function () {
 // Route Standar
 Route::resource('pelanggan', PelangganController::class);
 Route::resource('menu', MenuController::class);
+Route::resource('kategori', KategoriController::class);
 Route::resource('kurir', KurirController::class);
 Route::resource('user', UserController::class);
 
-// Route Guest & Auth (Soal 1 & Soal 2)
+// Route Guest & Auth
 Route::get('/', [GuestController::class, 'home'])->name('guest.home');
 Route::get('/guest', [GuestController::class, 'home']);
-Route::get('/auth', [GuestController::class, 'loginForm'])->name('guest.login');
+Route::get('/auth', [GuestController::class, 'loginForm'])->name('guest.login')->name('auth.index');
 Route::post('/auth', [GuestController::class, 'loginProcess'])->name('guest.login.process');
 Route::get('/register', [GuestController::class, 'registerForm'])->name('guest.register');

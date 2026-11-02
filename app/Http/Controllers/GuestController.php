@@ -3,14 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; // Import DB Facade untuk Query Builder
 
 class GuestController extends Controller
 {
-    // Jika tampilan utama restoran kamu ada di dashboard.blade.php, gunakan 'guest.dashboard'.
-    // Jika ada di home.blade.php, gunakan 'guest.home'.
-    public function home()
+    public function home(Request $request)
     {
-        return view('guest.dashboard'); 
+        $search = $request->input('search');
+
+        // Query Builder untuk mengambil data menu + kategori di halaman Guest
+        $menus = DB::table('menus')
+            ->leftJoin('kategori', 'menus.kategori_id', '=', 'kategori.id')
+            ->select(
+                'menus.*',
+                'kategori.nama_kategori'
+            )
+            ->when($search, function ($query, $search) {
+                // Nested Where untuk fitur pencarian Guest
+                $query->where(function ($q) use ($search) {
+                    $q->where('menus.nama_menu', 'like', '%' . $search . '%')
+                      ->orWhere('kategori.nama_kategori', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest('menus.created_at')
+            ->paginate(6);
+
+        // Mengirimkan variabel $menus ke tampilan guest.dashboard
+        return view('guest.dashboard', compact('menus'));
     }
 
     public function loginForm()
