@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id('id_menu');
+            
+            // Mengganti kolom 'kategori' string menjadi foreign key ke tabel 'kategori'
+            $table->foreignId('kategori_id')->nullable()->constrained('kategori')->onDelete('cascade');
+            
             $table->string('nama_menu');
-            $table->string('kategori');
             $table->integer('harga');
             $table->integer('stok');
             $table->text('deskripsi')->nullable();
