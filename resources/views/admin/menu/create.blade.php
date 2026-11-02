@@ -33,13 +33,15 @@
 
                 <div class="mb-3">
                     <label class="form-label text-white fw-semibold">Kategori</label>
-                    <select name="kategori" class="form-select bg-dark text-white border-secondary @error('kategori') is-invalid @enderror">
+                    <select name="kategori_id" class="form-select bg-dark text-white border-secondary @error('kategori_id') is-invalid @enderror">
                         <option value="">-- Pilih Kategori --</option>
-                        <option value="Makanan Utama" {{ old('kategori') == 'Makanan Utama' ? 'selected' : '' }}>Makanan Utama</option>
-                        <option value="Minuman" {{ old('kategori') == 'Minuman' ? 'selected' : '' }}>Minuman</option>
-                        <option value="Cemilan" {{ old('kategori') == 'Cemilan' ? 'selected' : '' }}>Cemilan</option>
+                        @foreach($categories as $kat)
+                            <option value="{{ $kat->id }}" {{ old('kategori_id') == $kat->id ? 'selected' : '' }}>
+                                {{ $kat->nama_kategori }}
+                            </option>
+                        @endforeach
                     </select>
-                    @error('kategori')
+                    @error('kategori_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

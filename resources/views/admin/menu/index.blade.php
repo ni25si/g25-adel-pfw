@@ -38,6 +38,12 @@
                         </a>
                     </li>
                     <li class="nav-item mb-2">
+                        <a href="{{ route('kategori.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white text-decoration-none" style="background-color: #262f3d !important;">
+                            <span class="sidebar-icon me-3 ms-1"><i class="fas fa-tags fs-6" style="color: #9ca3af !important;"></i></span>
+                            <span class="sidebar-text fw-medium">Data Kategori</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
                         <a href="{{ route('menu.index') }}" class="nav-link d-flex align-items-center p-2 rounded-3 text-white text-decoration-none" style="background-color: #262f3d !important;">
                             <span class="sidebar-icon me-3 ms-1"><i class="fas fa-book-open fs-6" style="color: #9ca3af !important;"></i></span>
                             <span class="sidebar-text fw-medium">Data Menu</span>
@@ -70,54 +76,54 @@
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table table-dark table-hover align-middle mb-0">
-    <thead>
-        <tr>
-            <th class="px-3">No</th>
-            <th class="px-3">Nama Menu</th>
-            <th class="px-3">Kategori</th>
-            <th class="px-3 text-nowrap">Harga</th>
-            <th class="px-3 text-nowrap">Stok</th>
-            <th class="px-3">Deskripsi</th>
-            <th class="text-center px-3 text-nowrap">Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        @forelse($menus as $index => $item)
-            <tr>
-                <td class="px-3">{{ $index + 1 }}</td>
-                <td class="fw-bold px-3 text-nowrap">{{ $item->nama_menu }}</td>
-                <td class="px-3 text-nowrap"><span class="badge bg-info text-dark">{{ $item->kategori }}</span></td>
-                <td class="px-3 text-nowrap fw-bold text-success">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                <td class="px-3 text-nowrap">{{ $item->stok }} pcs</td>
-                <td class="px-3">{{ $item->deskripsi ?? '-' }}</td>
-                <td class="text-center px-3 text-nowrap">
-                    <div class="d-flex align-items-center justify-content-center gap-1">
-                        <a href="{{ route('menu.edit', $item->id_menu) }}" class="btn btn-warning text-white btn-sm px-3 py-1">
-                            <i class="fas fa-edit me-1"></i> Edit
-                        </a>
-                        <form action="{{ route('menu.destroy', $item->id_menu) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus menu ini?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger text-white btn-sm px-3 py-1">
-                                <i class="fas fa-trash-alt me-1"></i> Hapus
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="7" class="text-center py-4 text-muted">Belum ada data menu kuliner.</td>
-            </tr>
-        @endforelse
-    </tbody>
-</table>
+                            <thead>
+                                <tr>
+                                    <th class="px-3">No</th>
+                                    <th class="px-3">Nama Menu</th>
+                                    <th class="px-3">Kategori</th>
+                                    <th class="px-3 text-nowrap">Harga</th>
+                                    <th class="px-3 text-nowrap">Stok</th>
+                                    <th class="px-3">Deskripsi</th>
+                                    <th class="text-center px-3 text-nowrap">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($menus as $index => $item)
+                                    <tr>
+                                        <td class="px-3">{{ $index + 1 }}</td>
+                                        <td class="fw-bold px-3 text-nowrap">{{ $item->nama_menu }}</td>
+                                        <td class="px-3 text-nowrap"><span class="badge bg-info text-dark">{{ $item->kategori->nama_kategori ?? 'Umum' }}</span></td>
+                                        <td class="px-3 text-nowrap fw-bold text-success">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                        <td class="px-3 text-nowrap">{{ $item->stok }} pcs</td>
+                                        <td class="px-3">{{ $item->deskripsi ?? '-' }}</td>
+                                        <td class="text-center px-3 text-nowrap">
+                                            <div class="d-flex align-items-center justify-content-center gap-1">
+                                                <a href="{{ route('menu.edit', $item->id_menu) }}" class="btn btn-warning text-white btn-sm px-3 py-1">
+                                                    <i class="fas fa-edit me-1"></i> Edit
+                                                </a>
+                                                <form action="{{ route('menu.destroy', $item->id_menu) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus menu ini?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger text-white btn-sm px-3 py-1">
+                                                        <i class="fas fa-trash-alt me-1"></i> Hapus
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4 text-muted">Belum ada data menu kuliner.</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="{{ asset('assets-admin/js/bootstrap.bundle.min.css') }}"></script>
+    <script src="{{ asset('assets-admin/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
